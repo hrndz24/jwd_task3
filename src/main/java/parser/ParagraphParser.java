@@ -1,11 +1,15 @@
 package parser;
 
+import entity.ComponentType;
 import entity.TextComponent;
 import entity.TextComposite;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class ParagraphParser implements TextParser {
 
-    private static final String PARAGRAPH_REGEX = ".*[^\\n]";
+    private static final String PARAGRAPH_REGEX = "(.*[^\\n])(\\n*)";
     private TextParser nextParser;
 
     public ParagraphParser(TextParser nextParser) {
@@ -14,6 +18,14 @@ public class ParagraphParser implements TextParser {
 
     @Override
     public TextComposite parse(TextComposite composite, String textToParse) {
-        return null;
+        Pattern pattern = Pattern.compile(PARAGRAPH_REGEX);
+        Matcher matcher = pattern.matcher(textToParse);
+
+        while (matcher.find()){
+            TextComposite paragraph = new TextComposite(ComponentType.PARAGRAPH);
+            paragraph = nextParser.parse(paragraph, matcher.group());
+            composite.addComponent(paragraph);
+        }
+        return composite;
     }
 }

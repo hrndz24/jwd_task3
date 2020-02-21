@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class WordParser implements TextParser {
-    private static final String WORD_REGEX = "([\\w]+)(\\W*)";
+    private static final String WORD_REGEX = "(\\w*)([\\W|\\n]*)";
     private TextParser nextParser;
 
     public WordParser(TextParser nextParser) {

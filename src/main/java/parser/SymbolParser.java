@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class SymbolParser implements TextParser {
 
-    public static final String SYMBOL_REGEX = ".";
+    public static final String SYMBOL_REGEX = ".|\\n";
 
     @Override
     public TextComposite parse(TextComposite composite, String textToParse) {
