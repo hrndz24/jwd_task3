@@ -1,6 +1,7 @@
 package parser;
 
 import entity.TextComponent;
+import entity.TextComposite;
 
 public class LexemeParser implements TextParser {
 
@@ -12,7 +13,7 @@ public class LexemeParser implements TextParser {
     }
 
     @Override
-    public TextComponent parse(TextComponent component, String textToParse) {
+    public TextComponent parse(TextComposite component, String textToParse) {
         return null;
     }
 }

@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 public class SymbolParser implements TextParser {
 
-    public static final String SYMBOL_REGEX = "";
+    public static final String SYMBOL_REGEX = ".";
 
     @Override
     public TextComponent parse(TextComposite composite, String textToParse) {
