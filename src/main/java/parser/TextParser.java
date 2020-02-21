@@ -5,5 +5,5 @@ import entity.TextComposite;
 
 public interface TextParser {
 
-    TextComponent parse(TextComposite composite, String textToParse);
+    TextComposite parse(TextComposite composite, String textToParse);
 }

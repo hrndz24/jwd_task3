@@ -13,7 +13,7 @@ public class ParagraphParser implements TextParser {
     }
 
     @Override
-    public TextComponent parse(TextComposite composite, String textToParse) {
+    public TextComposite parse(TextComposite composite, String textToParse) {
         return null;
     }
 }

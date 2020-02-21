@@ -13,7 +13,7 @@ public class LexemeParser implements TextParser {
     }
 
     @Override
-    public TextComponent parse(TextComposite component, String textToParse) {
+    public TextComposite parse(TextComposite component, String textToParse) {
         return null;
     }
 }
