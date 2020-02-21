@@ -1,6 +1,7 @@
 package parser;
 
 import entity.TextComponent;
+import entity.TextComposite;
 
 public class SentenceParser implements TextParser {
 
@@ -12,7 +13,7 @@ public class SentenceParser implements TextParser {
     }
 
     @Override
-    public TextComponent parse(String componentToParse) {
+    public TextComponent parse(TextComposite composite, String textToParse) {
         return null;
     }
 }

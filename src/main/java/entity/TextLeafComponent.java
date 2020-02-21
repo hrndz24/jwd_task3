@@ -3,11 +3,11 @@ package entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Symbol implements TextComponent {
+public class TextLeafComponent implements TextComponent {
 
-    private char symbol;
+    private String symbol;
 
-    public Symbol(char symbol) {
+    public TextLeafComponent(String symbol) {
         this.symbol = symbol;
     }
 
@@ -27,6 +27,6 @@ public class Symbol implements TextComponent {
 
     @Override
     public String toString() {
-        return String.valueOf(symbol);
+        return symbol;
     }
 }

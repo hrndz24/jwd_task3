@@ -3,7 +3,7 @@ package entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TextComposite implements TextComponent{
+public class TextComposite implements TextComponent {
 
     private ComponentType type;
     private List<TextComponent> components;
@@ -14,7 +14,7 @@ public class TextComposite implements TextComponent{
     }
 
     public List<TextComponent> getComponents() {
-        return null;
+        return components;
     }
 
     public ComponentType getComponentType() {
@@ -23,5 +23,14 @@ public class TextComposite implements TextComponent{
 
     public void addComponent(TextComponent component) {
         components.add(component);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (TextComponent component : components) {
+            stringBuilder.append(component);
+        }
+        return stringBuilder.toString();
     }
 }
