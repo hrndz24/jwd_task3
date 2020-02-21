@@ -24,4 +24,9 @@ public class Symbol implements TextComponent {
     public void addComponent(TextComponent component) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(symbol);
+    }
 }

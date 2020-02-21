@@ -3,12 +3,12 @@ package entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompoundComponent implements TextComponent{
+public class TextComposite implements TextComponent{
 
     private ComponentType type;
     private List<TextComponent> components;
 
-    public CompoundComponent(ComponentType type) {
+    public TextComposite(ComponentType type) {
         this.type = type;
         this.components = new ArrayList<TextComponent>();
     }
