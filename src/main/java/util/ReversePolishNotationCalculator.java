@@ -5,22 +5,22 @@ import java.util.Deque;
 
 public class ReversePolishNotationCalculator {
 
-    public int calculate(String text) {
-        text = changeShiftOperationsToOneSymbol(text);
+    public int calculate(String expression) {
+        expression = changeShiftOperatorsToOneSymbol(expression);
 
         Deque<Character> operations = new ArrayDeque<>();
         Deque<Integer> result = new ArrayDeque<>();
         int i = 0;
         char symbol;
-        while (i < text.length()) {
-            symbol = text.charAt(i);
+        while (i < expression.length()) {
+            symbol = expression.charAt(i);
             if (isDigit(symbol)) {
-                StringBuilder digit = new StringBuilder();
-                while (i < text.length() && isDigit(symbol = text.charAt(i))) {
-                    digit.append(symbol);
+                StringBuilder number = new StringBuilder();
+                while (i < expression.length() && isDigit(symbol = expression.charAt(i))) {
+                    number.append(symbol);
                     i++;
                 }
-                result.push(Integer.valueOf(digit.toString()));
+                result.push(Integer.valueOf(number.toString()));
             } else {
                 if (operations.isEmpty() || getPriority(symbol) < getPriority(operations.peek())) {
                     operations.push(symbol);
@@ -99,7 +99,7 @@ public class ReversePolishNotationCalculator {
             case '|':
                 return 5;
             default:
-                return 100;
+                return 15;
         }
     }
 
@@ -107,8 +107,8 @@ public class ReversePolishNotationCalculator {
         return symbol >= '0' && symbol <= '9';
     }
 
-    private String changeShiftOperationsToOneSymbol(String text) {
-        text = text.replace(">>", ">");
-        return text.replace("<<", "<");
+    private String changeShiftOperatorsToOneSymbol(String expression) {
+        expression = expression.replace(">>", ">");
+        return expression.replace("<<", "<");
     }
 }
