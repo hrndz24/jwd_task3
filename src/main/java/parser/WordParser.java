@@ -21,8 +21,9 @@ public class WordParser implements TextParser {
         Pattern pattern = Pattern.compile(WORD_REGEX);
         Matcher matcher = pattern.matcher(textToParse);
 
+        TextComposite word;
         while (matcher.find()){
-            TextComposite word = new TextComposite(ComponentType.WORD);
+            word = new TextComposite(ComponentType.WORD);
             word = nextParser.parse(word, matcher.group());
             composite.addComponent(word);
         }

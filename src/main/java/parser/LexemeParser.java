@@ -21,10 +21,10 @@ public class LexemeParser implements TextParser {
         Pattern pattern = Pattern.compile(LEXEME_REGEX);
         Matcher matcher = pattern.matcher(textToParse);
 
+        TextComposite lexeme;
         while (matcher.find()){
-            TextComposite lexeme = new TextComposite(ComponentType.LEXEME);
+            lexeme = new TextComposite(ComponentType.LEXEME);
             lexeme = nextParser.parse(lexeme, matcher.group());
-            System.out.println(matcher.group());
             composite.addComponent(lexeme);
         }
         return composite;

@@ -21,8 +21,9 @@ public class ParagraphParser implements TextParser {
         Pattern pattern = Pattern.compile(PARAGRAPH_REGEX);
         Matcher matcher = pattern.matcher(textToParse);
 
+        TextComposite paragraph;
         while (matcher.find()){
-            TextComposite paragraph = new TextComposite(ComponentType.PARAGRAPH);
+            paragraph = new TextComposite(ComponentType.PARAGRAPH);
             paragraph = nextParser.parse(paragraph, matcher.group());
             composite.addComponent(paragraph);
         }

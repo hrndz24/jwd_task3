@@ -10,7 +10,7 @@ public class TextComposite implements TextComponent {
 
     public TextComposite(ComponentType type) {
         this.type = type;
-        this.components = new ArrayList<TextComponent>();
+        this.components = new ArrayList<>();
     }
 
     public List<TextComponent> getComponents() {

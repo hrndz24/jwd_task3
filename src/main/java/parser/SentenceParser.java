@@ -21,8 +21,9 @@ public class SentenceParser implements TextParser {
         Pattern pattern = Pattern.compile(SENTENCE_REGEX);
         Matcher matcher = pattern.matcher(textToParse);
 
+        TextComposite sentence;
         while (matcher.find()){
-            TextComposite sentence = new TextComposite(ComponentType.SENTENCE);
+            sentence = new TextComposite(ComponentType.SENTENCE);
             sentence = nextParser.parse(sentence, matcher.group());
             composite.addComponent(sentence);
         }
