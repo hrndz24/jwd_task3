@@ -1,14 +1,16 @@
-package parser;
+package parser.implementation;
 
 import composite.ComponentType;
 import composite.TextComposite;
+import parser.TextParser;
+import util.ReversePolishNotationCalculator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ExpressionParser implements TextParser {
 
-    public static final String EXPRESSION_REGEX ="";
+    public static final String EXPRESSION_REGEX ="(?m)(~|~\\(*|\\(*~|\\()?\\d+(\\.\\d+)?(( *\\)* *)([-+*/&|^]|<<|>>) *~* *\\(* *~* *\\d+(\\.\\d+)?\\)*)+";
     private TextParser nextParser;
 
     public ExpressionParser(TextParser nextParser) {
@@ -22,9 +24,8 @@ public class ExpressionParser implements TextParser {
 
         while (matcher.find()){
             String expressionString = matcher.group();
-            // TODO: 22.02.2020 calculate
-            int expressionValue =0 ;
-            textToParse = matcher.replaceAll(String.valueOf(expressionValue));
+            int expressionValue =new ReversePolishNotationCalculator().calculate(expressionString);
+            textToParse = textToParse.replace(expressionString, String.valueOf(expressionValue));
         }
         TextComposite text = new TextComposite(ComponentType.TEXT);
         text = nextParser.parse(text, textToParse);

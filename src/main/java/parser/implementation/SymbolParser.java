@@ -1,7 +1,8 @@
-package parser;
+package parser.implementation;
 
 import composite.TextComposite;
 import composite.TextLeafComponent;
+import parser.TextParser;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
