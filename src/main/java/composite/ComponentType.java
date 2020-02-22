@@ -1,4 +1,4 @@
-package entity;
+package composite;
 
 public enum ComponentType {
 

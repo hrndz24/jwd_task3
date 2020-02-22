@@ -1,14 +1,14 @@
 package parser;
 
-import entity.ComponentType;
-import entity.TextComposite;
+import composite.ComponentType;
+import composite.TextComposite;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SentenceParser implements TextParser {
 
-    private static final String SENTENCE_REGEX = "([^.!?]+)(\\.{1,3}|!|\\?)([\\s|\\n]*)";
+    private static final String SENTENCE_REGEX = "([^.!?]+\\.{1,3}|!|\\?)([\\s|\\n]*)";
     private TextParser nextParser;
 
     public SentenceParser(TextParser nextParser) {

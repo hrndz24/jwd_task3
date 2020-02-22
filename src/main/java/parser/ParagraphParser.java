@@ -1,8 +1,7 @@
 package parser;
 
-import entity.ComponentType;
-import entity.TextComponent;
-import entity.TextComposite;
+import composite.ComponentType;
+import composite.TextComposite;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

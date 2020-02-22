@@ -1,7 +1,6 @@
 package parser;
 
-import entity.TextComponent;
-import entity.TextComposite;
+import composite.TextComposite;
 
 public interface TextParser {
 
