@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class ExpressionParser implements TextParser {
 
-    public static final String EXPRESSION_REGEX ="(?m)(~|~\\(*|\\(*~|\\()?\\d+(\\.\\d+)?(( *\\)* *)([-+*/&|^]|<<|>>) *~* *\\(* *~* *\\d+(\\.\\d+)?\\)*)+";
+    public static final String EXPRESSION_REGEX = "(?m)(~|~\\(*|\\(*~|\\()?\\d+(\\.\\d+)?(( *\\)* *)([-+*/&|^]|<<|>>) *~* *\\(* *~* *\\d+(\\.\\d+)?\\)*)+";
     private TextParser nextParser;
 
     public ExpressionParser(TextParser nextParser) {
@@ -22,9 +22,9 @@ public class ExpressionParser implements TextParser {
         Pattern pattern = Pattern.compile(EXPRESSION_REGEX);
         Matcher matcher = pattern.matcher(textToParse);
 
-        while (matcher.find()){
+        while (matcher.find()) {
             String expressionString = matcher.group();
-            int expressionValue =new ReversePolishNotationCalculator().calculate(expressionString);
+            int expressionValue = new ReversePolishNotationCalculator().calculate(expressionString);
             textToParse = textToParse.replace(expressionString, String.valueOf(expressionValue));
         }
         TextComposite text = new TextComposite(ComponentType.TEXT);

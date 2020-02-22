@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 public class ParagraphParser implements TextParser {
 
-    private static final String PARAGRAPH_REGEX = "(.*[^\\n])(\\n*)";
+    private static final String PARAGRAPH_REGEX = "(.*[^\\n]\\n*)";
     private TextParser nextParser;
 
     public ParagraphParser(TextParser nextParser) {
@@ -22,7 +22,7 @@ public class ParagraphParser implements TextParser {
         Matcher matcher = pattern.matcher(textToParse);
 
         TextComposite paragraph;
-        while (matcher.find()){
+        while (matcher.find()) {
             paragraph = new TextComposite(ComponentType.PARAGRAPH);
             paragraph = nextParser.parse(paragraph, matcher.group());
             composite.addComponent(paragraph);

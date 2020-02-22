@@ -12,6 +12,7 @@ import java.nio.file.Files;
 public class FileTextReader {
 
     private static Logger logger = LogManager.getLogger();
+
     public String getText(File file) throws ReaderException {
         String text;
         try {

@@ -17,7 +17,7 @@ public class SymbolParser implements TextParser {
         Matcher symbolMatcher = symbolPattern.matcher(textToParse);
 
         String symbol;
-        while (symbolMatcher.find()){
+        while (symbolMatcher.find()) {
             symbol = symbolMatcher.group();
             composite.addComponent(new TextLeafComponent(symbol));
         }

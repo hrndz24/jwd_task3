@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 public class SentenceParser implements TextParser {
 
-    private static final String SENTENCE_REGEX = "([^.!?]+\\.{1,3}|!|\\?)([\\s|\\n]*)";
+    private static final String SENTENCE_REGEX = "([^.!?]+[.{1,3}!?][\\s\\n]*)";
     private TextParser nextParser;
 
     public SentenceParser(TextParser nextParser) {
@@ -23,7 +23,7 @@ public class SentenceParser implements TextParser {
         Matcher matcher = pattern.matcher(textToParse);
 
         TextComposite sentence;
-        while (matcher.find()){
+        while (matcher.find()) {
             sentence = new TextComposite(ComponentType.SENTENCE);
             sentence = nextParser.parse(sentence, matcher.group());
             composite.addComponent(sentence);

@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 public class LexemeParser implements TextParser {
 
-    private static final String LEXEME_REGEX = "([^\\s]*)([\\s|\\n]*)";
+    private static final String LEXEME_REGEX = "([^\\s]+[\\s\\n]*)";
     private TextParser nextParser;
 
     public LexemeParser(TextParser nextParser) {
@@ -23,7 +23,7 @@ public class LexemeParser implements TextParser {
         Matcher matcher = pattern.matcher(textToParse);
 
         TextComposite lexeme;
-        while (matcher.find()){
+        while (matcher.find()) {
             lexeme = new TextComposite(ComponentType.LEXEME);
             lexeme = nextParser.parse(lexeme, matcher.group());
             composite.addComponent(lexeme);

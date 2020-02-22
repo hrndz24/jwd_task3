@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class WordParser implements TextParser {
-    private static final String WORD_REGEX = "(\\w*)([\\W|\\n]*)";
+    private static final String WORD_REGEX = "(\\w+[\\W\\n]*)";
     private TextParser nextParser;
 
     public WordParser(TextParser nextParser) {
@@ -23,7 +23,7 @@ public class WordParser implements TextParser {
         Matcher matcher = pattern.matcher(textToParse);
 
         TextComposite word;
-        while (matcher.find()){
+        while (matcher.find()) {
             word = new TextComposite(ComponentType.WORD);
             word = nextParser.parse(word, matcher.group());
             composite.addComponent(word);
